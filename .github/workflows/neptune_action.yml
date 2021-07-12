@@ -26,6 +26,7 @@ jobs:
       - name: Setup pull request branch environment and run experiment
         id: experiment_pr
         run: |
+          echo "Hello"
           pip install -r requirements.txt
           export NEPTUNE_EXPERIMENT_TAG_ID=$(uuidgen)
           python train.py
