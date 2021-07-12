@@ -18,12 +18,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Checkout pull request branch
-        uses: actions/checkout@v2
-        with:
-          ref: develop
 
       - name: Setup pull request branch environment and run experiment
+    # uses: actions/checkout@v2
         id: experiment_pr
         run: |
           echo "Hello2"
