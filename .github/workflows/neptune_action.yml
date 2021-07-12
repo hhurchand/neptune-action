@@ -1,8 +1,7 @@
 name: Neptune actions
 
-on:
-  pull_request:
-    branches: [master]
+on: [push]
+
 
 jobs:
   compare-experiments:
