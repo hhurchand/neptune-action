@@ -1,7 +1,4 @@
-FROM ubuntu:latest
-
-RUN apt-get update
-RUN apt-get install python
+FROM python:3.6
 
 
 WORKDIR /app
@@ -15,4 +12,4 @@ COPY BostonData.csv /app
 
 EXPOSE 8000
 
-CMD ["python3","./train.py"]
+CMD ["python","./train.py"]
