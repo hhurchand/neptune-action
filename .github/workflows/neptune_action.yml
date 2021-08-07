@@ -26,9 +26,9 @@ jobs:
       - name: Setup pull request branch environment and run experiment
         id: experiment_pr
         run: |
-          pip install -r requirements.txt
           export NEPTUNE_EXPERIMENT_TAG_ID=$(uuidgen)
-          python train.py
+          docker build -t hhurchand/bdebneptunelocal:latest .
+          docker run  hhurchand/bdebneptunelocal:latest
           echo ::set-output name=experiment_tag_id::$NEPTUNE_EXPERIMENT_TAG_ID
 
       - name: Checkout main branch
@@ -50,9 +50,14 @@ jobs:
           PR_BRANCH_EXPERIMENT_TAG_ID: ${{ steps.experiment_pr.outputs.experiment_tag_id }}
         id: compare
         run: |
-          docker build -t hhurchand/bdebneptunelocal:latest .
-          docker run  hhurchand/bdebneptunelocal:latest
+          pip install -r requirements.txt
           python -m neptunecontrib.create_experiment_comparison_comment \
+            --api_token $NEPTUNE_API_TOKEN \
+            --project_name $NEPTUNE_PROJECT_NAME \
+            --tag_names $MAIN_BRANCH_EXPERIMENT_TAG_ID $PR_BRANCH_EXPERIMENT_TAG_ID \
+            --filepath comment_body.md
+          result=$(cat comment_body.md)
+          echo ::set-output name=result::$result
             
 
       - name: Create a comment
