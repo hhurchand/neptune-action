@@ -1,8 +1,7 @@
 FROM ubuntu:latest
 
-RUN apt-get update \
-    && apt-get install -y python3-pip \
-    && pip3 install --upgrade pip
+RUN apt-get update
+RUN apt-get install python
 
 
 WORKDIR /app
