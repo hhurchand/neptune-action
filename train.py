@@ -20,8 +20,8 @@ logger = logging.getLogger(__name__)
 
 
 # In[2]:
-neptune.init(api_token=os.getenv('NEPTUNE_API_TOKEN'),
-            project_qualified_name=os.getenv('NEPTUNE_PROJECT_NAME'))
+#neptune.init(api_token=os.getenv('NEPTUNE_API_TOKEN'),
+#            project_qualified_name=os.getenv('NEPTUNE_PROJECT_NAME'))
 
 df = pd.read_csv('BostonData.csv',header=0)
 #df.to_csv(r'C:\Users\hhurc\BostonData\BostonData.csv')
