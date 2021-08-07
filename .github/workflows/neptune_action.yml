@@ -18,7 +18,6 @@ jobs:
       - name: Setup pull request branch environment and run experiment
         id: experiment_pr
         run: |
-          export NEPTUNE_EXPERIMENT_TAG_ID=$(uuidgen)
           docker build -t hhurchand/bdebneptunelocal:latest .
           docker run  hhurchand/bdebneptunelocal:latest
           echo ::set-output name=experiment_tag_id::$NEPTUNE_EXPERIMENT_TAG_ID
