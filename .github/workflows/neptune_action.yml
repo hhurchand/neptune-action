@@ -11,14 +11,13 @@ jobs:
     env:
       NEPTUNE_API_TOKEN: ${{ secrets.NEPTUNE_API_TOKEN }}
       NEPTUNE_PROJECT_NAME: ${{ secrets.NEPTUNE_PROJECT_NAME }}
-
     steps:
-
-
-      - name: Setup pull request branch environment and run experiment
-        id: experiment_pr
+      - uses: actions/checkout@v2
+      - name: cml_run
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          docker build -t hhurchand/bdebneptunelocal:latest .
-          docker run  hhurchand/bdebneptunelocal:latest
-          echo ::set-output name=experiment_tag_id::$NEPTUNE_EXPERIMENT_TAG_ID
+            echo "Run docker"
+            docker build -t hhurchand/bdebneptunelocal:latest .
+            docker run  hhurchand/bdebneptunelocal:latest
 
