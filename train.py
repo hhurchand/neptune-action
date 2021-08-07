@@ -114,8 +114,7 @@ y = df0["MEDV"]
 X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2)
 
 
-neptune.init(api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI2ZDIwNGI1YS02NDZiLTQ2ODctYjcxOS0xNDIxMzQzMWJjM2IifQ=="),
-            project_qualified_name='h.hurchand/BostonDataBDEB')
+neptune.init(api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI2ZDIwNGI1YS02NDZiLTQ2ODctYjcxOS0xNDIxMzQzMWJjM2IifQ==",project_qualified_name='h.hurchand/BostonDataBDEB')
 
 neptune.create_experiment('BostonData-NEPTUNE')
 
