@@ -15,4 +15,4 @@ COPY BostonData.csv /app
 
 EXPOSE 8000
 
-CMD ["python","./train.py"]
+CMD ["python3","./train.py"]
